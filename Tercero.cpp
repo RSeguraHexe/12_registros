@@ -40,6 +40,7 @@ int main(){
         system("cls");
 
         std::cout<<"ingrese un mes: "; std::cin>>m;
+        if(m==0){break;}
         std::cout<<"datos de las personas que nacieron en ese mes: \n";
 
         for(int i=0; i<n; i++){
