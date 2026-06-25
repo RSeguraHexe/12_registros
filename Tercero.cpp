@@ -1,47 +1,52 @@
 #include<iostream>
 #include<string>
+#include<cstdlib>
 
-struct nacimiento{
+struct fechanacimiento{
     int dia;
     int mes;
     int anio;
 };
+
 struct datos{
-    std::string name;
-    struct nacimiento fecha;
-}personas[100]; 
+    std::string nombre;
+    struct fechanacimiento fecha;
+}dt[190];
 
 int main(){
 
-    int n=0;
-    do{
-        std::cout<<"Ingrese la cantidad de personas (mayor a cero, menor igual a 100): "; std::cin>>n;
-        std::cout<<"=====================================================================\n";
-    }while(n<=0 || n>100);
+    int n;
+    std::cout<<"cantidad de personas: "; std::cin>>n;
 
     for(int i=0; i<n; i++){
-        char sepa;
         std::cin.ignore();
+        char z;
 
-        std::cout<<"Nombre de la persona "<<i+1<<": ";
-        std::getline(std::cin, personas[i].name);
+        std::cout<<"persona "<<i+1<<", nombre: "; std::getline(std::cin, dt[i].nombre);
 
-        std::cout<<"Fecha de nacimiento de la persona "<<i+1<<": "; 
-        std::cin>>personas[i].fecha.dia>>sepa
-                >>personas[i].fecha.mes>>sepa
-                >>personas[i].fecha.anio;
-
-        std::cout<<"=====================================================================\n";
+        std::cout<<"persona "<<i+1<<", fecha de nacimiento (DD/MM/AAAA): ";
+        std::cin>>dt[i].fecha.dia>>z
+                >>dt[i].fecha.mes>>z
+                >>dt[i].fecha.anio;
     }
 
-    for(int i=0; i<n; i++){
+    int m=1; 
+    do{
+        system("cls");
 
-        std::cout<<"Nombre: "<<personas[i].name<<"\n";
+        std::cout<<"ingrese un mes: "; std::cin>>m;
+        std::cout<<"datos de las personas que nacieron en ese mes: \n";
 
-        std::cout<<personas[i].fecha.dia<<"/"
-                <<personas[i].fecha.mes<<"/"
-                <<personas[i].fecha.anio<<"\n";
+        for(int i=0; i<n; i++){
+            if(dt[i].fecha.mes==m){
 
-    }
-    return 0;
+                std::cout<<"persona "<<i+1<<": \n";
+                std::cout<<"nombre: "<<dt[i].nombre<<" --- "<<" fecha de nacimiento: "<<dt[i].fecha.dia<<"/"<<dt[i].fecha.mes<<"/"<<dt[i].fecha.anio<<"\n";
+
+            }
+        }
+
+        system("pause");
+
+    }while(m!=0);
 }
