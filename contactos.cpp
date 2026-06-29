@@ -1,6 +1,6 @@
 #include<iostream>
 #include<string>
-#include<string>
+#include<cstdlib>
 
 struct ContactoEmail{
     std::string nombre;
@@ -37,8 +37,8 @@ int main(){
         std::cout<<"Indique la accion\n";
         std::cout<<"============================================================\n";
         std::cout<<" 1 : Agregar contacto\n";
-        std::cout<<" 2 : Modificar contacto\n";
-        std::cout<<" 3 : Mostrar todos los contactos\n";
+        std::cout<<" 2 : Mostrar todos los contactos\n";
+        std::cout<<" 3 : Modificar contacto\n";
         std::cout<<" 4 : Mostrar los contactos por servidor\n";
         std::cout<<" 5 : Eliminar contacto\n";
         std::cout<<" 6 : Buscar contacto por email\n";
@@ -68,7 +68,24 @@ int main(){
 
                 break;
 
-            case 2: std::cout<<"adc"; break;
+            case 2:
+
+                system("cls");
+
+                for(int i=0; i<k; i++){
+                    std::cout<<"============================================================\n";
+                    std::cout<<"Contacto ["<<i+1<<"]\n\n";
+
+                    std::cout<<"Nombre: "<<contact[i].nombre<<"\n";
+                    std::cout<<"Sexo: "<<contact[i].sexo<<"\n";
+                    std::cout<<"Edad: "<<contact[i].edad<<"\n";
+                    std::cout<<"Email: "<<contact[i].email<<"\n";
+                }
+
+                std::cout<<"\n\n";
+                system("pause");
+                break;
+
             case 3: std::cout<<"adc"; break; 
             case 4: std::cout<<"adc"; break; 
         }
