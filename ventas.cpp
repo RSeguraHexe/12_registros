@@ -26,6 +26,7 @@ int main(){
     
     std::cout<<"Nombre del producto: "; std::getline(std::cin, prod[0].nombre);
     std::cout<<"Precio del producto: "; std::cin>>prod[0].precio;
+    prod[0].cantidad=0; /*Se inicializa la cantidad en 0, ya que no se ha registrado ninguna entrada de productos*/
     std::cout<<"====================================================================\n";
     std::cout<<"Perfecto! Ya tiene su primer producto, presione cualquier tecla para continuar...\n\n";
 
@@ -36,6 +37,8 @@ int main(){
     char op='X'; /*Aqui se indicara la opcion seleccionada */
 
     do{
+        system("cls");
+        
         std::cout<<"====================================================================\n";
         std::cout<<" MiniMarket! -  Seleccione una opcion del menu\n";
         std::cout<<"====================================================================\n";
@@ -69,10 +72,12 @@ int main(){
                     std::cout<<"Precio del producto: "; std::cin>>prod[k-1].precio;
                     std::cout<<"====================================================================\n";
                     std::cout<<"Confirmar esta accion? [S/N]: "; std::cin>>z;
-                    if(z=='S' || z=='s'){
 
+                    if(z=='S' || z=='s'){
                         k++; /*Se incrementa el contador de productos registrados*/
                         std::cout<<"Perfecto! Ya tiene su producto registrado, presione cualquier\ntecla para continuar...\n\n";
+                        prod[0].cantidad=0; /*Se inicializa la cantidad en 0, ya que no se ha registrado ninguna entrada de productos*/
+
                         system("pause"); system("cls");
 
                     }else if(z=='N' || z=='n'){
@@ -115,6 +120,25 @@ int main(){
                         system("pause"); system("cls");
                     }
                 }
+
+                break;
+            }
+
+            case 'C':
+            case 'c':{
+                std::cout<<"====================================================================\n";
+                std::cout<<"Lista total de productos registrados!\n";
+                std::cout<<"====================================================================\n";
+                for(int j=0; j<k; j++){
+                    std::cout<<"Producto ["<<j+1<<"]\n\n";
+
+                    std::cout<<"Nombre: "<<prod[j].nombre<<"\n";
+                    std::cout<<"Precio: "<<prod[j].precio<<"\n";
+                    std::cout<<"Cantidad: "<<prod[j].cantidad<<"\n";
+                    std::cout<<"====================================================================\n";
+                }
+                std::cout<<"Presione cualquier tecla para continuar...\n\n";
+                system("pause");
 
                 break;
             }
