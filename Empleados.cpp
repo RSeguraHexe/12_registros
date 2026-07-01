@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<cstdlib>
 
 struct Empleado{
     std::string name;
