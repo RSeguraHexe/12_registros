@@ -32,7 +32,7 @@ int main(){
         }
     }
 
-    int promedio, almacenar=0;
+    float promedio, almacenar=0;
     for(int i=0; i<n; i++){
         almacenar=personas[i].edad+almacenar;
     }
