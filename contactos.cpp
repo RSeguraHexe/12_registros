@@ -131,14 +131,17 @@ int main(){
 
             case 4: 
 
-                int eliminando=1;
+                int eliminando=-1;
                 char confirmacion='N';
 
                 do{
                     system("cls");
 
                     std::cout<<"============================================================\n";
-                    std::cout<<"Ingre el numero de contacto que desea eliminar: "; std::cin>>eliminando;
+                    std::cout<<"Ingrese el numero de contacto que desea eliminar (escriba 0 para salir): "; std::cin>>eliminando;
+
+                    if(eliminando==0){break;}
+
                     std::cout<<"============================================================\n";
                     std::cout<<"Contacto ["<<eliminando<<"]\n\n";
 
@@ -147,15 +150,16 @@ int main(){
                     std::cout<<"Edad: "<<contact[eliminando-1].edad<<"\n";
                     std::cout<<"Email: "<<contact[eliminando-1].email<<"\n";
                     std::cout<<"============================================================\n";
-                    std::cout<<"Confirmar contacto (S/N)( Coloque 0 para salir ): "; std::cin>>confirmacion;
+                    std::cout<<"Confirmar contacto (S/N): "; std::cin>>confirmacion;
 
                     if(confirmacion==('S' || 's')){
 
                         system("cls");
 
-                        for(eliminando; eliminando<k; eliminando++){
-
+                        for(int i=eliminando-1; i<k-1; i++){
+                            contact[i] = contact[i+1];
                         }
+
                         std::cout<<"============================================================\n";
                         std::cout<<"El contacto ha sido eliminado correctamente";
                         std::cout<<"============================================================\n\n";
@@ -163,11 +167,6 @@ int main(){
                         k--;
 
                         system("pause");
-
-                    }else if(confirmacion=='0'){
-
-                        break;
-
                     }
                 }while(confirmacion==('N' || 'n'));
                 
@@ -175,8 +174,3 @@ int main(){
         }
     }while(op!=0);
 }
-
-
-int verificar (int a){
-
-} 
