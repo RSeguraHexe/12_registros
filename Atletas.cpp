@@ -40,8 +40,9 @@ int main(){
     std::cout<<"\nIngrese un país: "; std::getline(std::cin, temp);
     std::cout<<"=====================================================================\n";
 
-    int cont=0; /*Aqui almacenare la cantidad mayor de medallas*/
-    int indice=0; /*Aqui almacenare el indice del atleta con mayor medallas*/
+    int cont=-1; /*Aqui almacenare la cantidad mayor de medallas*/
+    int indice=-1; /*Aqui almacenare el indice del atleta con mayor medallas*/
+    bool verificador=false; /*Verifica si al menos 1 pais se encotro*/
 
     for(int i=0; i<n; i++){
         
@@ -52,15 +53,20 @@ int main(){
                 indice = i;
 
             }
+            verificador=true;
         }
     }
 
-    std::cout<<"Atleta con mayor medallas del pais "<<temp<<", Atleta ["<<indice+1<<"]\n\n";
+    if(verificador){
+        std::cout<<"Atleta con mayor medallas del pais "<<temp<<", Atleta ["<<indice+1<<"]\n\n";
 
-    std::cout<<"Nombre: "<<atle[indice].nombre<<"\n";
-    std::cout<<"País: "<<atle[indice].pais<<"\n";
-    std::cout<<"Disciplina: "<<atle[indice].disciplina<<"\n";
-    std::cout<<"Medallas: "<<atle[indice].medallas<<"\n";
+        std::cout<<"Nombre: "<<atle[indice].nombre<<"\n";
+        std::cout<<"País: "<<atle[indice].pais<<"\n";
+        std::cout<<"Disciplina: "<<atle[indice].disciplina<<"\n";
+        std::cout<<"Medallas: "<<atle[indice].medallas<<"\n";
+    } else {
+        std::cout<<"No se encontró ningún atleta del país "<<temp<<"\n";
+    }
     std::cout<<"=====================================================================\n";
     
     system("pause");
