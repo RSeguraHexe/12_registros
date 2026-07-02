@@ -293,6 +293,22 @@ int main(){
                 }
             system("pause"); system("cls"); break;
             }
+            case 'I':
+            case 'i':{
+                int sumanumventas; /* Aqui guardar la sumatoria de la cantidad de ventas registradas*/
+                int sumaprecventas; /* Aqui guardar la sumatoria del precio total de ventas registradas*/
+                for(int i=0; i<v; i++){
+                    sumanumventas=sumanumventas+vent[i].cantidad;
+                    sumaprecventas=sumaprecventas+vent[i].precioTotal;
+                }
+                std::cout<<"====================================================================\n";
+                std::cout<<"Total de ventas registradas!\n";
+                std::cout<<"====================================================================\n";
+                std::cout<<"Cantidad total de ventas: "<<sumanumventas<<"\n";
+                std::cout<<"Precio total de ventas: "<<sumaprecventas<<"\n";
+                std::cout<<"====================================================================\n";
+                system("pause"); system("cls"); break;
+            }
         }
     }while(op!='J' && op!='j');
 }
