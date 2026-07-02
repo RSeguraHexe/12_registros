@@ -21,6 +21,7 @@ int buscarIndice(std::string, int);
 int main(){
 
     int k=0; /*Contador de productos registrados*/
+    int v=0; /*Contador de ventas registradas*/
 
     std::cout<<"====================================================================\n";
     std::cout<<"Registre su primer producto!\n";
@@ -239,6 +240,58 @@ int main(){
                     std::cout<<"No se a encontrado el producto...\n";
                     system("pause"); system("cls"); break;
                 }
+            }
+            case 'G':
+            case 'g':{
+                std::string temporal;
+                std::cout<<"====================================================================\n";
+                std::cout<<"Registrar una venta!\n";
+                std::cout<<"====================================================================\n";
+                std::cout<<"Nombre del producto a vender: ";  std::cin.ignore(); std::getline(std::cin, temporal);
+                if(existencia(temporal, k)){
+                    int temporalmente, indice=buscarIndice(temporal, k);
+                    std::cout<<"====================================================================\n";
+                    std::cout<<"Producto ["<<indice+1<<"]\n\n";
+
+                    std::cout<<"Nombre: "<<prod[indice].nombre<<"\n";
+                    std::cout<<"Precio: "<<prod[indice].precio<<"\n";
+                    std::cout<<"Cantidad: "<<prod[indice].cantidad<<"\n";
+                    std::cout<<"====================================================================\n";
+                    std::cout<<"Cantidad a vender: "; std::cin>>temporalmente;
+                    if(temporalmente<=prod[indice].cantidad){
+                        std::cout<<"====================================================================\n";
+                        std::cout<<"Confirmar esta accion? [S/N]: "; std::cin>>temporal;
+                        if(temporal=="S" || temporal=="s"){
+                            prod[indice].cantidad=prod[indice].cantidad-temporalmente;
+                            vent[v].idVenta=v+1;
+                            vent[v].producto=prod[indice].nombre;
+                            vent[v].cantidad=temporalmente;
+                            vent[v].precioTotal=prod[indice].precio*temporalmente;
+                            v++; /*Se incrementa el contador de ventas registradassd*/
+                            std::cout<<"Venta registrada correctamente!\n";
+                            system("pause"); system("cls"); break;
+                        }
+                    }
+                }else{
+                    std::cout<<"====================================================================\n";
+                    std::cout<<"No se a encontrado el producto...\n";
+                    system("pause"); system("cls"); break;
+                }
+                break;
+            }
+            case 'H':
+            case 'h':{
+                std::cout<<"====================================================================\n";
+                std::cout<<"Lista total de ventas registradas!\n";
+                std::cout<<"====================================================================\n";
+                for(int i=0; i<v; i++){
+                    std::cout<<"ID de venta: "<<vent[i].idVenta<<"\n";
+                    std::cout<<"Producto: "<<vent[i].producto<<"\n";
+                    std::cout<<"Cantidad: "<<vent[i].cantidad<<"\n";
+                    std::cout<<"Precio total: "<<vent[i].precioTotal<<"\n";
+                    std::cout<<"====================================================================\n";
+                }
+            system("pause"); system("cls"); break;
             }
         }
     }while(op!='J' && op!='j');
