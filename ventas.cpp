@@ -102,7 +102,7 @@ int main(){
                 std::cout<<"Nombre del producto a agregar: "; std::getline(std::cin, temporal);
 
                 int encontrado=0; /*Variable para saber si se encontro el producto*/
-                for(int j=0; j<=k; j++){
+                for(int j=0; j<k; j++){
                     if(prod[j].nombre==temporal){
                         encontrado=1; /*Se marca que el producto fue encontrado*/
 
@@ -258,7 +258,7 @@ int main(){
                     std::cout<<"Cantidad: "<<prod[indice].cantidad<<"\n";
                     std::cout<<"====================================================================\n";
                     std::cout<<"Cantidad a vender: "; std::cin>>temporalmente;
-                    if(temporalmente<=prod[indice].cantidad){
+                    if((temporalmente<=prod[indice].cantidad)&&){
                         std::cout<<"====================================================================\n";
                         std::cout<<"Confirmar esta accion? [S/N]: "; std::cin>>temporal;
                         if(temporal=="S" || temporal=="s"){
@@ -271,6 +271,14 @@ int main(){
                             std::cout<<"Venta registrada correctamente!\n";
                             system("pause"); system("cls"); break;
                         }
+                    }else if(temporalmente>prod[indice].cantidad){
+                        std::cout<<"====================================================================\n";
+                        std::cout<<"No hay suficiente stock del producto...\n";
+                        system("pause"); system("cls"); break;
+                    }else if(temporalmente<=0){
+                        std::cout<<"====================================================================\n";
+                        std::cout<<"La cantidad a vender debe ser mayor a 0...\n";
+                        system("pause"); system("cls"); break;
                     }
                 }else{
                     std::cout<<"====================================================================\n";
