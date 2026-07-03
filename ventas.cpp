@@ -303,8 +303,8 @@ int main(){
             }
             case 'I':
             case 'i':{
-                int sumanumventas=0; /* Aqui guardar la sumatoria de la cantidad de ventas registradas*/
-                int sumaprecventas=0; /* Aqui guardar la sumatoria del precio total de ventas registradas*/
+                float sumanumventas=0; /* Aqui guardar la sumatoria de la cantidad de ventas registradas*/
+                float sumaprecventas=0; /* Aqui guardar la sumatoria del precio total de ventas registradas*/
                 for(int i=0; i<v; i++){
                     sumanumventas=sumanumventas+vent[i].cantidad;
                     sumaprecventas=sumaprecventas+vent[i].precioTotal;
